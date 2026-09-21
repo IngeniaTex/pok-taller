@@ -6,12 +6,13 @@ Guía para Claude Code al trabajar en este repositorio.
 
 Landing page de una sola página para **POK**, taller de carpintería y mobiliario a la medida en Mérida,
 Yucatán (clósets con LED, cocinas, oficinas, lambrines, proyectos comerciales). Derivada de la plantilla
-de oficios de Ingeniatex. Next.js 14 App Router, **JavaScript (`.jsx`), sin TypeScript, sin backend**.
+de oficios de Ingeniatex. Next.js 14 App Router, **JavaScript (`.jsx`), sin TypeScript**. Único backend: el Route Handler
+`app/api/cotizar/route.js` que envía el formulario por correo (Gmail SMTP con `nodemailer`).
 Bootstrap 5 solo para grid/utilidades; los estilos son propios (`public/assets/css/style.css`) con
 paleta verde oliva/naranja tomada del logo (`--olive-*`, `--primary-color-*`). Idioma: español (MX).
 Correo, dirección y testimonios en `site.jsx` son provisionales (marcados como PENDIENTE). Los
 originales de fotos del cliente están en `originales/pok/` (ignorado por git, fuera de `public/`):
-no referenciarlos desde el sitio; generar copias optimizadas en `public/assets/img/{hero,about,why-us,projects}/`.
+no referenciarlos desde el sitio; generar copias optimizadas en `public/assets/img/{hero,about,why-us,materials,projects}/`.
 
 Sigue las convenciones del sitio Ingeniatex del que deriva: componentes funcionales con
 `export default`, un componente por archivo, nombres kebab-case, clases BEM por sección
@@ -40,9 +41,9 @@ No correr `build` con `dev` activo (comparten `.next`).
 | Orden / visibilidad de secciones | `components/pages/home/index.jsx` (comentar la línea para ocultar) |
 | Menú desktop | `components/layout/header-menu.jsx` (items desde `site.nav`) |
 | Menú móvil | `components/layout/mobile-menu.jsx` — mismos items; mantener sincronizados |
-| Formulario | `components/pages/home/quote.jsx` — `handleSubmit` abre WhatsApp con el mensaje; ahí se conecta un backend si se pide |
+| Formulario | `components/pages/home/quote.jsx` hace POST a `app/api/cotizar/route.js` (correo a `site.contact.email` vía Gmail SMTP; requiere `GMAIL_APP_PASSWORD` en `.env.local`, ver `.env.example`). Si falla o no hay contraseña, ofrece WhatsApp con el mensaje armado |
 | SEO (title/description/OG) | `app/layout.jsx` lee `site.brand`; favicon en `app/icon.svg` |
-| Imágenes | `public/assets/img/{hero,about,why-us,projects}/` (jpg optimizados); rutas en `site.jsx`. Logo: `public/assets/img/logo/logo.png` y `logo-light.png` |
+| Imágenes | `public/assets/img/{hero,about,why-us,materials,projects}/` (jpg optimizados); rutas en `site.jsx`. Logo: `public/assets/img/logo/logo.png` y `logo-light.png` |
 
 ## Reglas y trampas
 
