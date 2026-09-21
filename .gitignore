@@ -1,0 +1,26 @@
+# Dependencies
+/node_modules
+
+# Next.js build output
+/.next
+/out
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env*.local
+.env
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Fotos originales del cliente (pesadas, no se despliegan); las copias web van en public/assets/img
+/originales/

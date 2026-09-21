@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#586028"/>
+  <text x="10" y="47" font-family="Helvetica Neue, Arial, sans-serif" font-size="42" font-weight="700" fill="#FFFFFF">P</text>
+  <g transform="translate(47 43)" fill="#E8683A">
+    <circle r="5"/>
+    <g stroke="#E8683A" stroke-width="2.4" stroke-linecap="round">
+      <line x1="0" y1="-7" x2="0" y2="-10"/>
+      <line x1="0" y1="7" x2="0" y2="10"/>
+      <line x1="-7" y1="0" x2="-10" y2="0"/>
+      <line x1="7" y1="0" x2="10" y2="0"/>
+      <line x1="-5" y1="-5" x2="-7.2" y2="-7.2"/>
+      <line x1="5" y1="5" x2="7.2" y2="7.2"/>
+      <line x1="-5" y1="5" x2="-7.2" y2="7.2"/>
+      <line x1="5" y1="-5" x2="7.2" y2="-7.2"/>
+    </g>
+  </g>
+</svg>
