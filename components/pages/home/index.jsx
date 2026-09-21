@@ -6,6 +6,7 @@ import About from "./about";
 import Process from "./process";
 import Services from "./services";
 import WhyUs from "./why-us";
+import Materials from "./materials";
 import Projects from "./projects";
 import Testimonials from "./testimonials";
 import Quote from "./quote";
@@ -25,6 +26,7 @@ const Home = () => {
         <Process />
         <Services />
         <WhyUs />
+        <Materials />
         <Projects />
         <Testimonials />
         <Quote />

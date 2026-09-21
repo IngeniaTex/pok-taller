@@ -37,11 +37,11 @@ const servicesData = [
   },
   {
     id: "recubrimientos",
-    title: "Lambrines y celosías",
+    title: "Lambrines y Muros",
     shortTitle: "Lambrines",
     icon: "fas fa-grip-lines-vertical",
-    des: "Muros de listones, celosías de madera y paneles decorativos con iluminación para transformar cualquier espacio.",
-    features: ["Muros de listones", "Celosías divisorias", "Paneles con luz LED"],
+    des: "Muros decorativos y vigas de WPC con acabado madera e iluminación para transformar cualquier espacio.",
+    features: ["Muros de lambrin", "Celosías y vigas", "Paneles con luz LED"],
   },
   {
     id: "comercial",

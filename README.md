@@ -16,6 +16,7 @@ están marcados como pendientes en `components/data/site.jsx`.
 | Proceso de trabajo (4 pasos) | `#proceso` | `components/pages/home/process.jsx` |
 | Servicios (grid desde `services-data`) | `#servicios`, `#servicio-<id>` | `components/pages/home/services.jsx` |
 | ¿Por qué elegirnos? | `#por-que-elegirnos` | `components/pages/home/why-us.jsx` |
+| Materiales (melamina / PVC / WPC) | `#materiales` | `components/pages/home/materials.jsx` |
 | Proyectos con filtro por categoría | `#proyectos` | `components/pages/home/projects.jsx` |
 | Testimonios | `#testimonios` | `components/pages/home/testimonials.jsx` |
 | Formulario de presupuesto + datos de contacto | `#cotizar` | `components/pages/home/quote.jsx` |
@@ -34,7 +35,7 @@ botón "volver arriba".
    y footer, fondo oscuro) se generaron a partir de `Pok-logo.png` (original). `brand.logo` /
    `brand.logoLight` apuntan a ellos.
 3. **Imágenes** – las fotos optimizadas para web están en `public/assets/img/` (`hero/`, `about/`,
-   `why-us/`, `projects/`); los originales del cliente viven en `originales/pok/` (fuera de
+   `why-us/`, `materials/`, `projects/`); los originales del cliente viven en `originales/pok/` (fuera de
    `public/` e ignorado por git; no se referencian desde el sitio). Para agregar un proyecto: exporta la foto a ~1200 px de ancho (jpg),
    guárdala en `projects/` y agrega el item en `site.projects.items`. Tamaños: hero 800×960,
    nosotros 1000×800 y 800×800, por qué elegirnos 889×800, proyectos 4:3.
@@ -43,9 +44,11 @@ botón "volver arriba".
    `public/assets/css/style.css`: `--primary-color-*` (naranja del logo) y `--olive-*` (verdes del logo).
 5. **Mapa** – en Google Maps: Compartir → Insertar un mapa → copia el `src` del iframe en
    `contact.mapEmbed`. Vacío = no se muestra.
-6. **Formulario** – no tiene backend: al enviar abre WhatsApp con el mensaje armado (nombre, teléfono,
-   servicio, zona y detalles). Si el cliente prefiere correo, reemplaza `handleSubmit` en
-   `quote.jsx` por un `fetch` a Formspree / EmailJS / una API route con Resend.
+6. **Formulario** – al enviar hace POST a `app/api/cotizar/route.js`, que manda el mensaje (nombre,
+   teléfono, servicio, zona y detalles) por correo a `contact.email` usando Gmail SMTP. Copia
+   `.env.example` a `.env.local` y pon la contraseña de aplicación de Gmail en `GMAIL_APP_PASSWORD`
+   (misma variable en el hosting). Sin contraseña, o si el envío falla, el formulario ofrece mandar
+   el mismo mensaje por WhatsApp.
 7. **SEO** – título, descripción y Open Graph salen de `brand.siteTitle` y `brand.description`
    (`app/layout.jsx` usa `export const metadata`). Favicon: `app/icon.svg`.
 

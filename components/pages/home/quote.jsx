@@ -4,11 +4,15 @@ import site from "@/components/data/site";
 import servicesData from "@/components/data/services-data";
 import WhatsappButton from "@/components/common/whatsapp-button";
 
-// Formulario de presupuesto. Sin backend: al enviar abre WhatsApp con el mensaje armado.
-// Para conectar un servicio de correo (Formspree, Resend, EmailJS) reemplaza handleSubmit.
+const EMPTY_FORM = { name: "", phone: "", service: "", location: "", message: "" };
+
+// Formulario de presupuesto. Al enviar hace POST a /api/cotizar (correo vía Gmail SMTP, ver app/api/cotizar/route.js).
+// Si el correo falla o no está configurado, ofrece enviar el mismo mensaje por WhatsApp.
 const Quote = () => {
   const { quote, contact } = site;
-  const [form, setForm] = useState({ name: "", phone: "", service: "", location: "", message: "" });
+  const [form, setForm] = useState(EMPTY_FORM);
+  // idle | sending | sent | error
+  const [status, setStatus] = useState("idle");
 
   // Preselecciona el servicio cuando se llega desde "Cotizar este servicio" (evento de services.jsx)
   useEffect(() => {
@@ -23,18 +27,36 @@ const Quote = () => {
 
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const serviceName = servicesData.find((s) => s.id === form.service)?.title ?? form.service;
+  const whatsappText = [
+    `Hola ${site.brand.name}, quiero solicitar un presupuesto.`,
+    `• Nombre: ${form.name}`,
+    `• Teléfono: ${form.phone}`,
+    `• Servicio: ${serviceName}`,
+    form.location && `• Ubicación: ${form.location}`,
+    `• Detalles: ${form.message}`,
+  ].filter(Boolean).join("\n");
+  const whatsappHref = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const serviceName = servicesData.find((s) => s.id === form.service)?.title ?? form.service;
-    const text = [
-      `Hola ${site.brand.name}, quiero solicitar un presupuesto.`,
-      `• Nombre: ${form.name}`,
-      `• Teléfono: ${form.phone}`,
-      `• Servicio: ${serviceName}`,
-      form.location && `• Ubicación: ${form.location}`,
-      `• Detalles: ${form.message}`,
-    ].filter(Boolean).join("\n");
-    window.open(`https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/cotizar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const resetForm = () => {
+    setForm(EMPTY_FORM);
+    setStatus("idle");
   };
 
   return (
@@ -48,6 +70,16 @@ const Quote = () => {
                 <h3>{quote.title}</h3>
                 <p>{quote.text}</p>
               </div>
+              {status === "sent" ? (
+                <div className="quote__alert quote__alert--success" role="status">
+                  <i className="fas fa-check-circle"></i>
+                  <div>
+                    <strong>{quote.success.title}</strong>
+                    <p>{quote.success.text}</p>
+                    <button type="button" className="btn-three" onClick={resetForm}>{quote.success.again}</button>
+                  </div>
+                </div>
+              ) : (
               <form onSubmit={handleSubmit}>
                 <div className="row gy-3">
                   <div className="col-md-6">
@@ -99,13 +131,27 @@ const Quote = () => {
                     </div>
                   </div>
                 </div>
+                {status === "error" && (
+                  <div className="quote__alert quote__alert--error" role="alert">
+                    <i className="fas fa-exclamation-circle"></i>
+                    <div>
+                      <strong>{quote.error.title}</strong>
+                      <p>{quote.error.text}</p>
+                      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-three">
+                        <i className="fab fa-whatsapp"></i>{quote.error.whatsapp}
+                      </a>
+                    </div>
+                  </div>
+                )}
                 <div className="quote__footer">
-                  <button type="submit" className="btn-one">
-                    <i className="fab fa-whatsapp"></i>{quote.submitLabel}
+                  <button type="submit" className="btn-one" disabled={status === "sending"}>
+                    <i className={status === "sending" ? "fas fa-spinner fa-spin" : "fas fa-paper-plane"}></i>
+                    {status === "sending" ? quote.sendingLabel : quote.submitLabel}
                   </button>
                   <p className="quote__privacy"><i className="fas fa-lock"></i>{quote.privacy}</p>
                 </div>
               </form>
+              )}
             </div>
           </div>
           <div className="col-xl-4 col-lg-4">

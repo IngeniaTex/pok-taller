@@ -2,7 +2,7 @@
 // Para adaptar la plantilla a un nuevo cliente edita este archivo (y services-data.jsx);
 // no hace falta tocar los componentes.
 //
-// PENDIENTE (confirmar con el cliente): correo, dirección y nombre del titular.
+// PENDIENTE (confirmar con el cliente): dirección exacta del taller y nombre del titular.
 // Los valores actuales de esos campos son provisionales.
 
 const site = {
@@ -22,9 +22,9 @@ const site = {
     // Número en formato internacional sin "+" ni espacios
     whatsappNumber: "529901654122",
     whatsapp: "https://wa.me/529901654122",
-    email: "contacto@pok.mx",
-    address: "Mérida, Yucatán",
-    serviceArea: "Mérida y alrededores (Dzityá, Conkal, Cholul, Temozón, Progreso)",
+    email: "pok.merida@gmail.com",
+    address: "Taller en Hunucmá, Yucatán",
+    serviceArea: "Mérida y alrededores",
     // Google Maps > Compartir > Insertar un mapa > copia el src del iframe. Vacío = sin mapa.
     mapEmbed: "",
   },
@@ -46,7 +46,7 @@ const site = {
     subtitle: "Carpintería a la medida en Mérida",
     title: "Clósets, cocinas y muebles diseñados para tu espacio",
     text:
-      "Fabricamos clósets con iluminación LED, cocinas integrales, mobiliario de oficina y lambrines de madera con acabados que se ven y se sienten de calidad. Medimos tu espacio, te proponemos el diseño y lo instalamos en la fecha acordada.",
+      "Fabricamos clósets con iluminación LED, cocinas integrales, mobiliario de oficina y muros de lambrin con acabados que se ven y se sienten de calidad. Medimos tu espacio, te proponemos el diseño y lo instalamos en la fecha acordada.",
     primaryCta: { label: "Solicitar cotización", href: "#cotizar" },
     image: "/assets/img/hero/hero.jpg",
     badge: { value: "100%", label: "hecho a la medida" },
@@ -56,7 +56,7 @@ const site = {
   stats: [
     { value: "100%", label: "Diseño a la medida", icon: "fas fa-ruler-combined" },
     { value: "LED", label: "Iluminación integrada", icon: "fas fa-lightbulb" },
-    { value: "Taller", label: "Fabricación propia en Mérida", icon: "fas fa-tools" },
+    { value: "Taller", label: "Fabricación propia en Hunucmá", icon: "fas fa-tools" },
     { value: "24 h", label: "Respuesta a cotizaciones", icon: "fas fa-stopwatch" },
   ],
 
@@ -64,10 +64,10 @@ const site = {
     subtitle: "Sobre nosotros",
     title: "Un taller de carpintería que cuida cada detalle",
     text:
-      "En POK diseñamos y fabricamos mobiliario a la medida para casas, oficinas y negocios en Mérida. Trabajamos con maderas y laminados de calidad, herrajes de cierre suave e iluminación LED integrada, y nos encargamos de todo: medición, diseño, fabricación e instalación.",
+      "En POK diseñamos y fabricamos mobiliario a la medida para casas, oficinas y negocios en Mérida y sus alrededores. Fabricamos todo en nuestro taller de Hunucmá con materiales premium, y nosotros nos encargamos de todo: medición, diseño, fabricación e instalación.",
     points: [
       "Medición y cotización sin costo",
-      "Amplio catálogo de maderas, laminados y colores",
+      "Amplio catálogo de melamina, PVC y WPC en colores y texturas",
       "Iluminación LED y herrajes de cierre suave",
       "Instalación limpia y en la fecha acordada",
     ],
@@ -93,7 +93,7 @@ const site = {
       },
       {
         title: "Fabricación en taller",
-        text: "Cortamos, armamos y detallamos cada módulo en nuestro taller con avances por foto.",
+        text: "Cortamos, armamos y detallamos cada módulo en nuestro taller de Hunucmá con avances por foto.",
         icon: "fas fa-tools",
       },
       {
@@ -111,12 +111,34 @@ const site = {
       "Un mueble a la medida se nota en los detalles: los cortes, los cantos, cómo cierra un cajón y cómo se ve con luz. Por eso cuidamos cada etapa, desde la elección del material hasta la instalación.",
     features: [
       { title: "A la medida real", text: "Cada módulo se diseña para tu espacio exacto, sin adaptar muebles genéricos.", icon: "fas fa-ruler-combined" },
-      { title: "Materiales de calidad", text: "Maderas, laminados y herrajes seleccionados para durar y verse bien.", icon: "fas fa-gem" },
+      { title: "Materiales Premium", text: "Melamina, PVC, WPC y herrajes seleccionados para durar y verse bien.", icon: "fas fa-gem" },
       { title: "Iluminación LED", text: "Integramos luz LED en clósets, cocinas y lambrines para un acabado premium.", icon: "fas fa-lightbulb" },
       { title: "Cumplimos fechas", text: "Acordamos un calendario de fabricación e instalación y te avisamos de cada avance.", icon: "fas fa-calendar-check" },
     ],
     image: "/assets/img/why-us/why-us.jpg",
     highlight: { value: "100%", label: "de nuestros clientes nos recomiendan" },
+  },
+
+  materials: {
+    subtitle: "Materiales",
+    title: "Con qué fabricamos",
+    text: "Elegimos cada material por su resistencia al clima de Yucatán, su acabado y su facilidad de limpieza.",
+    items: [
+      {
+        title: "Melamina",
+        text: "Clósets, cocinas, oficinas y todo el mobiliario se fabrica en melamina: tableros resistentes a la humedad y rayones, con una amplia gama de colores lisos y texturas tipo madera.",
+        image: "/assets/img/materials/melamina.jpg",
+        icon: "fas fa-layer-group",
+        tags: ["Clósets", "Cocinas", "Oficinas", "Muebles"],
+      },
+      {
+        title: "PVC / WPC",
+        text: "Los lambrines, muros y vigas decorativas son de PVC y WPC: tienen la veta y calidez de la madera, pero no se deforman con la humedad ni les entra polilla.",
+        image: "/assets/img/materials/wpc.jpg",
+        icon: "fas fa-grip-lines-vertical",
+        tags: ["Lambrines", "Muros", "Vigas"],
+      },
+    ],
   },
 
   projects: {
@@ -128,10 +150,10 @@ const site = {
       { title: "Cocina integral Real Montejo", category: "cocinas", location: "Real Montejo, Mérida", image: "/assets/img/projects/cocina-real-montejo.jpg" },
       { title: "Walk-in closet con cajoneras", category: "closets", location: "Dzityá, Mérida", image: "/assets/img/projects/walk-in-closet.jpg" },
       { title: "Estaciones de trabajo para oficinas", category: "oficinas", location: "Dzityá, Mérida", image: "/assets/img/projects/oficinas-dzitya.jpg" },
-      { title: "Sala de juntas con celosía de madera", category: "oficinas", location: "Dzityá, Mérida", image: "/assets/img/projects/sala-juntas.jpg" },
+      { title: "Sala de juntas con vigas de WPC", category: "oficinas", location: "Dzityá, Mérida", image: "/assets/img/projects/sala-juntas.jpg" },
       { title: "Vestidor con iluminación LED", category: "closets", location: "Dzityá, Mérida", image: "/assets/img/projects/vestidor-led.jpg" },
-      { title: "Lambrín de listones con luz LED", category: "recubrimientos", location: "Rancho Mezo", image: "/assets/img/projects/lambrin-listones.jpg" },
-      { title: "Fachada de baños con paneles y listones", category: "recubrimientos", location: "Rancho Mezo", image: "/assets/img/projects/banos-rancho-mezo.jpg" },
+      { title: "Muro de lambrin con luz LED", category: "recubrimientos", location: "Rancho Mezo", image: "/assets/img/projects/lambrin-listones.jpg" },
+      { title: "Fachada de baños con paneles y lambrin", category: "recubrimientos", location: "Rancho Mezo", image: "/assets/img/projects/banos-rancho-mezo.jpg" },
       { title: "Barra y escenario para salón de eventos", category: "comercial", location: "Rancho Mezo", image: "/assets/img/projects/barra-escenario.jpg" },
     ],
   },
@@ -169,8 +191,19 @@ const site = {
     subtitle: "Solicitar cotización",
     title: "Cuéntanos qué quieres fabricar",
     text: "Llena el formulario y te respondemos por WhatsApp con una propuesta y cotización. Sin compromiso.",
-    submitLabel: "Enviar por WhatsApp",
+    submitLabel: "Enviar solicitud",
+    sendingLabel: "Enviando...",
     privacy: "Tus datos solo se usan para responder a tu solicitud.",
+    success: {
+      title: "¡Recibimos tu solicitud!",
+      text: "Te contactamos por WhatsApp en menos de 24 horas hábiles con una propuesta.",
+      again: "Enviar otra solicitud",
+    },
+    error: {
+      title: "No pudimos enviar tu solicitud",
+      text: "Inténtalo de nuevo en un momento o envíanos el mismo mensaje por WhatsApp.",
+      whatsapp: "Enviar por WhatsApp",
+    },
     aside: {
       title: "¿Prefieres hablar directo?",
       text: "Escríbenos por WhatsApp con fotos o medidas de tu espacio y te orientamos antes de cotizar.",
@@ -185,7 +218,7 @@ const site = {
 
   footer: {
     about:
-      "Carpintería y mobiliario a la medida en Mérida, Yucatán: clósets, cocinas, oficinas, lambrines y proyectos comerciales.",
+      "Carpintería y mobiliario a la medida para Mérida y alrededores, fabricado en nuestro taller de Hunucmá, Yucatán: clósets, cocinas, oficinas, lambrines y proyectos comerciales.",
     links: [
       { label: "Nosotros", href: "#nosotros" },
       { label: "Proceso", href: "#proceso" },
