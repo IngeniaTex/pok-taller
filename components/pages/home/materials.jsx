@@ -18,6 +18,11 @@ const Materials = () => {
                   <div className="materials__card-icon"><i className={item.icon}></i></div>
                   <h4>{item.title}</h4>
                   <p>{item.text}</p>
+                  <ul className="materials__card-list">
+                    {item.benefits.map((benefit) => (
+                      <li key={benefit}><i className="fas fa-check"></i>{benefit}</li>
+                    ))}
+                  </ul>
                   <ul className="materials__card-tags">
                     {item.tags.map((tag) => (
                       <li key={tag}>{tag}</li>

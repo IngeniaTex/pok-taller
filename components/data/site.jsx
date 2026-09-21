@@ -126,14 +126,26 @@ const site = {
     items: [
       {
         title: "Melamina",
-        text: "Clósets, cocinas, oficinas y todo el mobiliario se fabrica en melamina: tableros resistentes a la humedad y rayones, con una amplia gama de colores lisos y texturas tipo madera.",
+        text: "Clósets, cocinas, oficinas y todo el mobiliario se fabrica en melamina.",
+        benefits: [
+          "Resistente a la humedad y a los rayones",
+          "Amplia gama de colores lisos y texturas tipo madera",
+          "Fácil de limpiar, sin barniz ni mantenimiento",
+          "Cortes precisos y cantos sellados para un acabado limpio",
+        ],
         image: "/assets/img/materials/melamina.jpg",
         icon: "fas fa-layer-group",
         tags: ["Clósets", "Cocinas", "Oficinas", "Muebles"],
       },
       {
         title: "PVC / WPC",
-        text: "Los lambrines, muros y vigas decorativas son de PVC y WPC: tienen la veta y calidez de la madera, pero no se deforman con la humedad ni les entra polilla.",
+        text: "Los lambrines, muros y vigas decorativas son de PVC y WPC (compuesto de madera y polímero).",
+        benefits: [
+          "Veta y calidez de la madera natural",
+          "No se deforma ni se hincha con la humedad",
+          "No le entra polilla ni termita",
+          "Apto para interiores y exteriores techados",
+        ],
         image: "/assets/img/materials/wpc.jpg",
         icon: "fas fa-grip-lines-vertical",
         tags: ["Lambrines", "Muros", "Vigas"],
