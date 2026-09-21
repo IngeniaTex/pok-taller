@@ -4,11 +4,12 @@ import site from "@/components/data/site";
 import servicesData from "@/components/data/services-data";
 import WhatsappButton from "@/components/common/whatsapp-button";
 
-// Formulario de presupuesto. Sin backend: al enviar abre WhatsApp con el mensaje armado.
-// Para conectar un servicio de correo (Formspree, Resend, EmailJS) reemplaza handleSubmit.
+// Formulario de presupuesto. Al enviar abre WhatsApp con el mensaje armado (canal principal) y,
+// en paralelo, manda una copia por correo vía /api/cotizar si el servidor tiene RESEND_API_KEY.
 const Quote = () => {
   const { quote, contact } = site;
   const [form, setForm] = useState({ name: "", phone: "", service: "", location: "", message: "" });
+  const [status, setStatus] = useState(null); // null | "whatsapp" | "email"
 
   // Preselecciona el servicio cuando se llega desde "Cotizar este servicio" (evento de services.jsx)
   useEffect(() => {
@@ -34,7 +35,18 @@ const Quote = () => {
       form.location && `• Ubicación: ${form.location}`,
       `• Detalles: ${form.message}`,
     ].filter(Boolean).join("\n");
+    // window.open debe ir antes de cualquier await para que el navegador no lo bloquee como popup
     window.open(`https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    setStatus("whatsapp");
+
+    fetch("/api/cotizar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...form, service: serviceName }),
+      keepalive: true,
+    })
+      .then((res) => res.ok && setStatus("email"))
+      .catch(() => {});
   };
 
   return (
@@ -105,6 +117,12 @@ const Quote = () => {
                   </button>
                   <p className="quote__privacy"><i className="fas fa-lock"></i>{quote.privacy}</p>
                 </div>
+                {status && (
+                  <p className="quote__status" role="status">
+                    <i className="fas fa-check-circle"></i>
+                    {quote.sentWhatsapp}{status === "email" && ` ${quote.sentEmail}`}
+                  </p>
+                )}
               </form>
             </div>
           </div>

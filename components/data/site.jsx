@@ -2,8 +2,7 @@
 // Para adaptar la plantilla a un nuevo cliente edita este archivo (y services-data.jsx);
 // no hace falta tocar los componentes.
 //
-// PENDIENTE (confirmar con el cliente): correo, dirección y nombre del titular.
-// Los valores actuales de esos campos son provisionales.
+// PENDIENTE (confirmar con el cliente): dirección exacta del taller y nombre del titular.
 
 const site = {
   brand: {
@@ -11,7 +10,7 @@ const site = {
     tagline: "Carpintería y mobiliario a la medida",
     siteTitle: "POK | Clósets, cocinas y muebles a la medida en Mérida",
     description:
-      "POK: carpintería a la medida en Mérida, Yucatán. Clósets con iluminación LED, cocinas integrales, mobiliario de oficina, lambrines y proyectos comerciales. Cotización sin costo.",
+      "POK: muebles de melamina a la medida para Mérida y alrededores, fabricados en nuestro taller de Hunucmá. Clósets con iluminación LED, cocinas integrales, mobiliario de oficina, lambrines y proyectos comerciales. Cotización sin costo.",
     logo: "/assets/img/logo/logo.png",
     logoLight: "/assets/img/logo/logo-light.png",
   },
@@ -22,9 +21,11 @@ const site = {
     // Número en formato internacional sin "+" ni espacios
     whatsappNumber: "529901654122",
     whatsapp: "https://wa.me/529901654122",
-    email: "contacto@pok.mx",
-    address: "Mérida, Yucatán",
-    serviceArea: "Mérida y alrededores (Dzityá, Conkal, Cholul, Temozón, Progreso)",
+    email: "pok.merida@gmail.com",
+    address: "Taller en Hunucmá, Yucatán",
+    // Dónde se fabrica vs. dónde se instala
+    workshopLocation: "Hunucmá, Yucatán",
+    serviceArea: "Mérida y alrededores (Dzityá, Conkal, Cholul, Temozón, Progreso, Hunucmá)",
     // Google Maps > Compartir > Insertar un mapa > copia el src del iframe. Vacío = sin mapa.
     mapEmbed: "",
   },
@@ -46,7 +47,7 @@ const site = {
     subtitle: "Carpintería a la medida en Mérida",
     title: "Clósets, cocinas y muebles diseñados para tu espacio",
     text:
-      "Fabricamos clósets con iluminación LED, cocinas integrales, mobiliario de oficina y lambrines de madera con acabados que se ven y se sienten de calidad. Medimos tu espacio, te proponemos el diseño y lo instalamos en la fecha acordada.",
+      "Fabricamos clósets con iluminación LED, cocinas integrales, mobiliario de oficina y lambrines en melamina de alta calidad. Medimos tu espacio en Mérida, fabricamos en nuestro taller de Hunucmá y lo instalamos en la fecha acordada.",
     primaryCta: { label: "Solicitar cotización", href: "#cotizar" },
     image: "/assets/img/hero/hero.jpg",
     badge: { value: "100%", label: "hecho a la medida" },
@@ -56,7 +57,7 @@ const site = {
   stats: [
     { value: "100%", label: "Diseño a la medida", icon: "fas fa-ruler-combined" },
     { value: "LED", label: "Iluminación integrada", icon: "fas fa-lightbulb" },
-    { value: "Taller", label: "Fabricación propia en Mérida", icon: "fas fa-tools" },
+    { value: "Taller", label: "Fabricación propia en Hunucmá", icon: "fas fa-tools" },
     { value: "24 h", label: "Respuesta a cotizaciones", icon: "fas fa-stopwatch" },
   ],
 
@@ -64,10 +65,10 @@ const site = {
     subtitle: "Sobre nosotros",
     title: "Un taller de carpintería que cuida cada detalle",
     text:
-      "En POK diseñamos y fabricamos mobiliario a la medida para casas, oficinas y negocios en Mérida. Trabajamos con maderas y laminados de calidad, herrajes de cierre suave e iluminación LED integrada, y nos encargamos de todo: medición, diseño, fabricación e instalación.",
+      "En POK diseñamos y fabricamos mobiliario a la medida para casas, oficinas y negocios de Mérida y sus alrededores. Cada proyecto se produce en nuestro taller de Hunucmá con melamina de alta calidad, herrajes de cierre suave e iluminación LED integrada, y nos encargamos de todo: medición, diseño, fabricación e instalación.",
     points: [
-      "Medición y cotización sin costo",
-      "Amplio catálogo de maderas, laminados y colores",
+      "Medición y cotización sin costo en Mérida",
+      "Amplio catálogo de melaminas en colores y texturas de madera",
       "Iluminación LED y herrajes de cierre suave",
       "Instalación limpia y en la fecha acordada",
     ],
@@ -92,8 +93,8 @@ const site = {
         icon: "fas fa-drafting-compass",
       },
       {
-        title: "Fabricación en taller",
-        text: "Cortamos, armamos y detallamos cada módulo en nuestro taller con avances por foto.",
+        title: "Fabricación en Hunucmá",
+        text: "Cortamos, enchapamos y armamos cada módulo de melamina en nuestro taller de Hunucmá, con avances por foto.",
         icon: "fas fa-tools",
       },
       {
@@ -111,12 +112,29 @@ const site = {
       "Un mueble a la medida se nota en los detalles: los cortes, los cantos, cómo cierra un cajón y cómo se ve con luz. Por eso cuidamos cada etapa, desde la elección del material hasta la instalación.",
     features: [
       { title: "A la medida real", text: "Cada módulo se diseña para tu espacio exacto, sin adaptar muebles genéricos.", icon: "fas fa-ruler-combined" },
-      { title: "Materiales de calidad", text: "Maderas, laminados y herrajes seleccionados para durar y verse bien.", icon: "fas fa-gem" },
+      { title: "Melamina de calidad", text: "Tableros de melamina resistentes a rayones y humedad, con cantos y herrajes que duran.", icon: "fas fa-gem" },
       { title: "Iluminación LED", text: "Integramos luz LED en clósets, cocinas y lambrines para un acabado premium.", icon: "fas fa-lightbulb" },
       { title: "Cumplimos fechas", text: "Acordamos un calendario de fabricación e instalación y te avisamos de cada avance.", icon: "fas fa-calendar-check" },
     ],
     image: "/assets/img/why-us/why-us.jpg",
     highlight: { value: "100%", label: "de nuestros clientes nos recomiendan" },
+  },
+
+  materials: {
+    subtitle: "Nuestro material",
+    title: "Melamina: el material con el que fabricamos",
+    text:
+      "Trabajamos principalmente con tableros de melamina de alta calidad: un material durable, fácil de limpiar y disponible en decenas de colores y texturas que imitan maderas naturales. Con él fabricamos clósets, cocinas, muebles y mobiliario de oficina con acabados uniformes y precisos.",
+    features: [
+      { title: "Resistente al uso diario", text: "Superficie que soporta rayones, humedad y limpieza frecuente.", icon: "fas fa-shield-alt" },
+      { title: "Colores y texturas", text: "Lisos, maderas claras, nogal, roble, gris y más para combinar con tu espacio.", icon: "fas fa-palette" },
+      { title: "Cantos y herrajes", text: "Cantos enchapados y herrajes de cierre suave para un acabado limpio.", icon: "fas fa-layer-group" },
+      { title: "Fabricación precisa", text: "Corte y armado en nuestro taller de Hunucmá para módulos exactos.", icon: "fas fa-ruler-combined" },
+    ],
+    image: "/assets/img/materials/melamina.jpg",
+    imageAlt: "Muestras de melamina en distintos colores y texturas de madera",
+    note: "¿Buscas otro material? Cuéntanos tu proyecto y te asesoramos.",
+    cta: { label: "Solicitar cotización", href: "#cotizar" },
   },
 
   projects: {
@@ -171,6 +189,9 @@ const site = {
     text: "Llena el formulario y te respondemos por WhatsApp con una propuesta y cotización. Sin compromiso.",
     submitLabel: "Enviar por WhatsApp",
     privacy: "Tus datos solo se usan para responder a tu solicitud.",
+    // Mensajes tras enviar (el correo solo se envía si el servidor tiene configurado RESEND_API_KEY)
+    sentWhatsapp: "Abrimos WhatsApp con tu solicitud; si no se abrió, escríbenos directo.",
+    sentEmail: "También recibimos una copia por correo. ¡Gracias!",
     aside: {
       title: "¿Prefieres hablar directo?",
       text: "Escríbenos por WhatsApp con fotos o medidas de tu espacio y te orientamos antes de cotizar.",
@@ -180,15 +201,16 @@ const site = {
 
   cta: {
     title: "¿Listo para diseñar tu espacio?",
-    text: "Agenda una visita sin costo. Medimos, proponemos el diseño y te decimos cuándo lo instalamos.",
+    text: "Agenda una visita sin costo en Mérida. Medimos, proponemos el diseño y te decimos cuándo lo instalamos.",
   },
 
   footer: {
     about:
-      "Carpintería y mobiliario a la medida en Mérida, Yucatán: clósets, cocinas, oficinas, lambrines y proyectos comerciales.",
+      "Muebles de melamina a la medida para Mérida y alrededores, fabricados en nuestro taller de Hunucmá: clósets, cocinas, oficinas, lambrines y proyectos comerciales.",
     links: [
       { label: "Nosotros", href: "#nosotros" },
       { label: "Proceso", href: "#proceso" },
+      { label: "Materiales", href: "#materiales" },
       { label: "Proyectos", href: "#proyectos" },
       { label: "Testimonios", href: "#testimonios" },
       { label: "Solicitar cotización", href: "#cotizar" },

@@ -15,6 +15,7 @@ están marcados como pendientes en `components/data/site.jsx`.
 | Nosotros | `#nosotros` | `components/pages/home/about.jsx` |
 | Proceso de trabajo (4 pasos) | `#proceso` | `components/pages/home/process.jsx` |
 | Servicios (grid desde `services-data`) | `#servicios`, `#servicio-<id>` | `components/pages/home/services.jsx` |
+| Materiales (melamina, muestrario) | `#materiales` | `components/pages/home/materials.jsx` |
 | ¿Por qué elegirnos? | `#por-que-elegirnos` | `components/pages/home/why-us.jsx` |
 | Proyectos con filtro por categoría | `#proyectos` | `components/pages/home/projects.jsx` |
 | Testimonios | `#testimonios` | `components/pages/home/testimonials.jsx` |
@@ -43,9 +44,13 @@ botón "volver arriba".
    `public/assets/css/style.css`: `--primary-color-*` (naranja del logo) y `--olive-*` (verdes del logo).
 5. **Mapa** – en Google Maps: Compartir → Insertar un mapa → copia el `src` del iframe en
    `contact.mapEmbed`. Vacío = no se muestra.
-6. **Formulario** – no tiene backend: al enviar abre WhatsApp con el mensaje armado (nombre, teléfono,
-   servicio, zona y detalles). Si el cliente prefiere correo, reemplaza `handleSubmit` en
-   `quote.jsx` por un `fetch` a Formspree / EmailJS / una API route con Resend.
+6. **Formulario** – al enviar abre WhatsApp con el mensaje armado (nombre, teléfono, servicio, zona y
+   detalles); esto funciona sin configurar nada. Además manda una copia por correo a través de
+   `app/api/cotizar/route.js` (Resend) **solo si** existen las variables de entorno: copia
+   `.env.example` a `.env.local` (o configúralas en el hosting) con `RESEND_API_KEY`,
+   `CONTACT_TO_EMAIL` (por defecto `contact.email` de `site.jsx`) y `CONTACT_FROM_EMAIL` (dominio
+   verificado en Resend; `onboarding@resend.dev` sirve para pruebas). Sin la API key la ruta responde
+   503 y el formulario sigue funcionando por WhatsApp.
 7. **SEO** – título, descripción y Open Graph salen de `brand.siteTitle` y `brand.description`
    (`app/layout.jsx` usa `export const metadata`). Favicon: `app/icon.svg`.
 
@@ -70,6 +75,7 @@ app/
 components/
   data/site.jsx         # TODO el contenido editable
   data/services-data.jsx# lista de servicios (menú, grid, filtro, formulario, footer)
+app/api/cotizar/route.js# envío de la solicitud por correo (Resend), opcional vía variables de entorno
   layout/               # header, header-menu (desktop), mobile-menu, footer
   common/               # section-title, whatsapp-button, whatsapp-float, scroll-to-top, social
   pages/home/           # index.jsx + una sección por archivo

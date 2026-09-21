@@ -5,6 +5,7 @@ import Stats from "./stats";
 import About from "./about";
 import Process from "./process";
 import Services from "./services";
+import Materials from "./materials";
 import WhyUs from "./why-us";
 import Projects from "./projects";
 import Testimonials from "./testimonials";
@@ -24,6 +25,7 @@ const Home = () => {
         <About />
         <Process />
         <Services />
+        <Materials />
         <WhyUs />
         <Projects />
         <Testimonials />

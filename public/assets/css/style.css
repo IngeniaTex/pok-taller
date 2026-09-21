@@ -15,6 +15,7 @@
   * Nosotros
   * Proceso
   * Servicios
+  * Materiales
   * ¿Por qué elegirnos?
   * Proyectos
   * Testimonios
@@ -1118,6 +1119,75 @@ div[id] {
 }
 
 /*==========================================================================
+* Materiales
+==========================================================================*/
+.materials__area {
+  background: var(--bg-white);
+}
+
+/* La foto del muestrario tiene fondo blanco: la sección también, para que se integre sin recortes */
+.materials__image {
+  padding: 0 30px;
+}
+
+.materials__image > img {
+  width: 100%;
+}
+
+.materials__content > p {
+  margin-bottom: 30px;
+}
+
+.materials__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 28px;
+  margin-bottom: 36px;
+}
+
+.materials__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.materials__list li > i {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--primary-soft);
+  color: var(--primary-color-1);
+  font-size: 18px;
+}
+
+.materials__list h5 {
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.materials__list p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted-color);
+}
+
+.materials__bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 28px;
+}
+
+.materials__note {
+  font-size: 15px;
+  color: var(--muted-color);
+}
+
+/*==========================================================================
 * ¿Por qué elegirnos?
 ==========================================================================*/
 .why-us__image {
@@ -1469,6 +1539,23 @@ div[id] {
 
 .quote__privacy i {
   color: var(--primary-color-1);
+}
+
+.quote__status {
+  margin: 18px 0 0;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--cream-200);
+  color: var(--olive-800);
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.quote__status i {
+  color: var(--whatsapp-dark);
+  margin-top: 3px;
 }
 
 .quote__aside {
@@ -1901,6 +1988,15 @@ div[id] {
 
   .about__content-list {
     grid-template-columns: 1fr;
+  }
+
+  .materials__list {
+    grid-template-columns: 1fr;
+  }
+
+  .materials__image {
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .why-us__image-highlight {

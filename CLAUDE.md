@@ -6,7 +6,8 @@ Guía para Claude Code al trabajar en este repositorio.
 
 Landing page de una sola página para **POK**, taller de carpintería y mobiliario a la medida en Mérida,
 Yucatán (clósets con LED, cocinas, oficinas, lambrines, proyectos comerciales). Derivada de la plantilla
-de oficios de Ingeniatex. Next.js 14 App Router, **JavaScript (`.jsx`), sin TypeScript, sin backend**.
+de oficios de Ingeniatex. Next.js 14 App Router, **JavaScript (`.jsx`), sin TypeScript**; el único backend es la
+API route del formulario (`app/api/cotizar/route.js`, correo vía Resend, opcional).
 Bootstrap 5 solo para grid/utilidades; los estilos son propios (`public/assets/css/style.css`) con
 paleta verde oliva/naranja tomada del logo (`--olive-*`, `--primary-color-*`). Idioma: español (MX).
 Correo, dirección y testimonios en `site.jsx` son provisionales (marcados como PENDIENTE). Los
@@ -40,7 +41,8 @@ No correr `build` con `dev` activo (comparten `.next`).
 | Orden / visibilidad de secciones | `components/pages/home/index.jsx` (comentar la línea para ocultar) |
 | Menú desktop | `components/layout/header-menu.jsx` (items desde `site.nav`) |
 | Menú móvil | `components/layout/mobile-menu.jsx` — mismos items; mantener sincronizados |
-| Formulario | `components/pages/home/quote.jsx` — `handleSubmit` abre WhatsApp con el mensaje; ahí se conecta un backend si se pide |
+| Formulario | `components/pages/home/quote.jsx` — `handleSubmit` abre WhatsApp (canal principal) y hace `fetch` a `app/api/cotizar/route.js`, que manda copia por correo con Resend solo si hay `RESEND_API_KEY` (ver `.env.example`) |
+| Sección Materiales (melamina) | `site.materials` en `site.jsx`; componente `components/pages/home/materials.jsx` |
 | SEO (title/description/OG) | `app/layout.jsx` lee `site.brand`; favicon en `app/icon.svg` |
 | Imágenes | `public/assets/img/{hero,about,why-us,projects}/` (jpg optimizados); rutas en `site.jsx`. Logo: `public/assets/img/logo/logo.png` y `logo-light.png` |
 
@@ -52,6 +54,7 @@ No correr `build` con `dev` activo (comparten `.next`).
   `quote`, `scroll-to-top`. No agregues `"use client"` al layout.
 - Preselección de servicio en el formulario: `services.jsx` emite `window.dispatchEvent(new CustomEvent("quote-service", { detail: id }))` y `quote.jsx` lo escucha. No usar `#cotizar?servicio=` (el hash no coincide con ningún id y no hace scroll).
 - Los `id` de `services-data` se usan como ancla (`#servicio-<id>`), categoría de proyectos y valor del select: sin acentos, espacios ni mayúsculas.
+- `window.open` de WhatsApp en `quote.jsx` debe ejecutarse antes de cualquier `await`/`then`; si no, el navegador lo bloquea como popup.
 - Anclas: `scroll-margin-top: var(--header-offset)` compensa el header fijo; si cambias la altura del header ajusta esa variable.
 - Iconos: Font Awesome **Free** (`@fortawesome/fontawesome-free`) — solo `fas`, `far`, `fab`. No copiar el Font Awesome Pro de Ingeniatex.
 - Imágenes con `<img src="/assets/img/...">` (rutas absolutas desde `public`), no `next/image`.

@@ -8,7 +8,7 @@ const servicesData = [
     title: "Clósets y vestidores",
     shortTitle: "Clósets",
     icon: "fas fa-tshirt",
-    des: "Clósets, walk-in closets y vestidores diseñados a la medida de tu recámara, con iluminación LED integrada y herrajes de cierre suave.",
+    des: "Clósets, walk-in closets y vestidores en melamina, diseñados a la medida de tu recámara con iluminación LED integrada y herrajes de cierre suave.",
     features: ["Walk-in closets", "Módulos con iluminación LED", "Cajoneras y zapateras"],
   },
   {
@@ -16,7 +16,7 @@ const servicesData = [
     title: "Cocinas integrales",
     shortTitle: "Cocinas",
     icon: "fas fa-utensils",
-    des: "Cocinas completas con gabinetes, alacenas y cubiertas que aprovechan cada centímetro y resisten el uso diario.",
+    des: "Cocinas completas con gabinetes y alacenas de melamina resistente a la humedad, que aprovechan cada centímetro y soportan el uso diario.",
     features: ["Gabinetes y alacenas", "Luz LED bajo alacena", "Cubiertas y accesorios"],
   },
   {
@@ -24,7 +24,7 @@ const servicesData = [
     title: "Muebles a la medida",
     shortTitle: "Muebles",
     icon: "fas fa-couch",
-    des: "Centros de entretenimiento, libreros, bases de cama, mesas y escritorios fabricados para el espacio exacto donde van.",
+    des: "Centros de entretenimiento, libreros, bases de cama, mesas y escritorios en melamina, fabricados para el espacio exacto donde van.",
     features: ["Centros de entretenimiento", "Mesas y escritorios", "Libreros y repisas"],
   },
   {
