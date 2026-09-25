@@ -16,7 +16,7 @@ están marcados como pendientes en `components/data/site.jsx`.
 | Proceso de trabajo (4 pasos) | `#proceso` | `components/pages/home/process.jsx` |
 | Servicios (grid desde `services-data`) | `#servicios`, `#servicio-<id>` | `components/pages/home/services.jsx` |
 | ¿Por qué elegirnos? | `#por-que-elegirnos` | `components/pages/home/why-us.jsx` |
-| Materiales (melamina / PVC / WPC) | `#materiales` | `components/pages/home/materials.jsx` |
+| Materiales (melamina, madera, enchapados, acero, PVC/WPC) | `#materiales` | `components/pages/home/materials.jsx` |
 | Proyectos con filtro por categoría | `#proyectos` | `components/pages/home/projects.jsx` |
 | Testimonios | `#testimonios` | `components/pages/home/testimonials.jsx` |
 | Formulario de presupuesto + datos de contacto | `#cotizar` | `components/pages/home/quote.jsx` |
