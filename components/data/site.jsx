@@ -9,7 +9,7 @@ const site = {
   brand: {
     name: "POK",
     tagline: "Carpintería y mobiliario a la medida",
-    siteTitle: "POK | Clósets, cocinas y muebles a la medida en Mérida",
+    siteTitle: "POK | Clósets, cocinas y acabados a la medida en Mérida",
     description:
       "POK: carpintería a la medida en Mérida, Yucatán. Clósets con iluminación LED, cocinas integrales, mobiliario de oficina, lambrines y proyectos comerciales. Cotización sin costo.",
     logo: "/assets/img/logo/logo.png",
@@ -44,9 +44,9 @@ const site = {
 
   hero: {
     subtitle: "Carpintería a la medida en Mérida",
-    title: "Clósets, cocinas y muebles diseñados para tu espacio",
+    title: "Muebles y acabados a la medida para tu casa o tu negocio",
     text:
-      "Fabricamos clósets con iluminación LED, cocinas integrales, mobiliario de oficina y muros de lambrin con acabados que se ven y se sienten de calidad. Medimos tu espacio, te proponemos el diseño y lo instalamos en la fecha acordada.",
+      "Fabricamos clósets, cocinas, oficinas, muros y plafones, decks y mobiliario comercial, con acabados que se ven y se sienten de calidad. Medimos tu espacio, te proponemos el diseño y lo instalamos en la fecha acordada.",
     primaryCta: { label: "Solicitar cotización", href: "#cotizar" },
     image: "/assets/img/hero/hero.jpg",
     badge: { value: "100%", label: "hecho a la medida" },
@@ -67,7 +67,7 @@ const site = {
       "En POK diseñamos y fabricamos mobiliario a la medida para casas, oficinas y negocios en Mérida y sus alrededores. Fabricamos todo en nuestro taller de Hunucmá con materiales premium, y nosotros nos encargamos de todo: medición, diseño, fabricación e instalación.",
     points: [
       "Medición y cotización sin costo",
-      "Amplio catálogo de melamina, PVC y WPC en colores y texturas",
+      "Amplio catálogo de materiales, colores y texturas",
       "Iluminación LED y herrajes de cierre suave",
       "Instalación limpia y en la fecha acordada",
     ],
@@ -111,7 +111,7 @@ const site = {
       "Un mueble a la medida se nota en los detalles: los cortes, los cantos, cómo cierra un cajón y cómo se ve con luz. Por eso cuidamos cada etapa, desde la elección del material hasta la instalación.",
     features: [
       { title: "A la medida real", text: "Cada módulo se diseña para tu espacio exacto, sin adaptar muebles genéricos.", icon: "fas fa-ruler-combined" },
-      { title: "Materiales Premium", text: "Melamina, PVC, WPC y herrajes seleccionados para durar y verse bien.", icon: "fas fa-gem" },
+      { title: "Materiales Premium", text: "Materiales y herrajes seleccionados para resistir el uso diario y verse bien.", icon: "fas fa-gem" },
       { title: "Iluminación LED", text: "Integramos luz LED en clósets, cocinas y lambrines para un acabado premium.", icon: "fas fa-lightbulb" },
       { title: "Cumplimos fechas", text: "Acordamos un calendario de fabricación e instalación y te avisamos de cada avance.", icon: "fas fa-calendar-check" },
     ],
@@ -121,30 +121,63 @@ const site = {
 
   materials: {
     subtitle: "Materiales",
-    title: "Con qué fabricamos",
-    text: "Elegimos cada material por su resistencia al clima de Yucatán, su acabado y su facilidad de limpieza.",
+    title: "Funcionalidad, diseño y calidad",
+    text: "Elegimos el material según el mueble, el uso y el espacio. Estos son los que trabajamos en POK.",
     items: [
       {
         title: "Melamina",
-        text: "Clósets, cocinas, oficinas y todo el mobiliario se fabrica en melamina.",
+        badge: "Nuestra especialidad",
+        text: "Tablero de aglomerado o MDF recubierto con una lámina decorativa de resina melamínica.",
         benefits: [
-          "Resistente a la humedad y a los rayones",
-          "Amplia gama de colores lisos y texturas tipo madera",
-          "Fácil de limpiar, sin barniz ni mantenimiento",
-          "Cortes precisos y cantos sellados para un acabado limpio",
+          "Variedad de diseños, colores y texturas",
+          "Fácil de limpiar y mantener",
+          "Resistente al desgaste superficial",
+          "Versátil y accesible",
         ],
         image: "/assets/img/materials/melamina.jpg",
         icon: "fas fa-layer-group",
         tags: ["Clósets", "Cocinas", "Oficinas", "Muebles"],
       },
       {
-        title: "PVC / WPC",
-        text: "Los lambrines, muros y vigas decorativas son de PVC y WPC (compuesto de madera y polímero).",
+        title: "Madera",
+        text: "Sus vetas y tonalidades naturales hacen que cada pieza tenga una apariencia única.",
         benefits: [
-          "Veta y calidez de la madera natural",
-          "No se deforma ni se hincha con la humedad",
-          "No le entra polilla ni termita",
-          "Apto para interiores y exteriores techados",
+          "Vetas y tonalidades naturales",
+          "Resistente",
+          "Atemporal",
+          "Requiere mayor cuidado y mantenimiento",
+        ],
+        image: "/assets/img/materials/madera.jpg",
+        icon: "fas fa-tree",
+      },
+      {
+        title: "Enchapados",
+        text: "Incorporan la apariencia y textura de la madera natural sobre superficies de tablero.",
+        benefits: [
+          "Vetas naturales",
+          "Variedad de acabados",
+        ],
+        image: "/assets/img/materials/enchapados.jpg",
+        icon: "fas fa-clone",
+      },
+      {
+        title: "Acero",
+        text: "Ideal para crear estructuras, combinar materiales y desarrollar diseños con una estética industrial o contemporánea.",
+        benefits: [
+          "Resistente",
+          "Versátil",
+        ],
+        image: "/assets/img/materials/acero.jpg",
+        icon: "fas fa-industry",
+        tags: ["Estructuras", "Estética industrial"],
+      },
+      {
+        title: "PVC | WPC",
+        text: "Materiales que ofrecen distintas soluciones decorativas para transformar espacios interiores y exteriores.",
+        benefits: [
+          "Resistencia a la humedad",
+          "Fácil mantenimiento",
+          "Variedad de diseños, colores y texturas",
         ],
         image: "/assets/img/materials/wpc.jpg",
         icon: "fas fa-grip-lines-vertical",
@@ -159,8 +192,11 @@ const site = {
     // category debe coincidir con un id de services-data.jsx
     items: [
       { title: "Clóset con módulos e iluminación LED", category: "closets", location: "Mérida, Yucatán", image: "/assets/img/projects/closet-led.jpg" },
+      { title: "Clóset con entrepaños y luz LED perimetral", category: "closets", location: "Mérida, Yucatán", image: "/assets/img/projects/closet-led-modulos.jpg" },
+      { title: "Clóset con cajonera y módulos de guardado", category: "closets", location: "Mérida, Yucatán", image: "/assets/img/projects/closet-cajonera.jpg" },
       { title: "Cocina integral Real Montejo", category: "cocinas", location: "Real Montejo, Mérida", image: "/assets/img/projects/cocina-real-montejo.jpg" },
       { title: "Walk-in closet con cajoneras", category: "closets", location: "Dzityá, Mérida", image: "/assets/img/projects/walk-in-closet.jpg" },
+      { title: "Walk-in closet con acabado nogal y LED", category: "closets", location: "Dzityá, Mérida", image: "/assets/img/projects/walk-in-closet-nogal.jpg" },
       { title: "Estaciones de trabajo para oficinas", category: "oficinas", location: "Dzityá, Mérida", image: "/assets/img/projects/oficinas-dzitya.jpg" },
       { title: "Sala de juntas con vigas de WPC", category: "oficinas", location: "Dzityá, Mérida", image: "/assets/img/projects/sala-juntas.jpg" },
       { title: "Vestidor con iluminación LED", category: "closets", location: "Dzityá, Mérida", image: "/assets/img/projects/vestidor-led.jpg" },
